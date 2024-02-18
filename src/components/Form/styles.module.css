@@ -65,6 +65,10 @@
   box-sizing: border-box;
 }
 
+.checkboxWrapper {
+  padding: 6.55px;
+}
+
 .checkbox[type="checkbox"] {
   align-items: center;
   appearance: none;
@@ -72,11 +76,13 @@
   border-radius: 50%;
   border: 2px solid var(--blue);
   display: flex;
-  height: 24px;
+  flex-shrink: 0;
+  height: 17.45px;
   justify-content: center;
   transition: background 100ms;
-  width: 24px;
+  width: 17.45px;
 }
+
 .checkbox[type="checkbox"]:hover {
   border-color: var(--blue-dark);
   background: rgba(94, 96, 206, 0.2);
