@@ -1,0 +1,20 @@
+.task {
+  align-items: flex-start;
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 1rem;
+  font-size: var(--14px);
+}
+
+.done {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.notDone {
+  color: var(--gray-100);
+}
