@@ -1,0 +1,8 @@
+.todoBar {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.5rem;
+    width: 46rem;
+    margin: 0 auto;
+    margin-top: -27px;
+}
