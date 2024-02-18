@@ -1,12 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Form } from "./components/Form";
+import { PlusCircle, Trash } from "@phosphor-icons/react";
+import Header from "./components/Header";
+import TodoBar from "./components/TodoBar";
+import TodoList from "./components/TodoList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-  )
+    <>
+      <Header />
+      <TodoBar />
+      <TodoList />
+
+      {/* <Form.IconButton>
+        <Trash weight='bold' />
+      </Form.IconButton>
+      <Form.Input
+        // label="Adicione uma nova tarefa"
+        placeholder='Adicione uma nova tarefa'
+      />
+      <Form.Checkbox /> */}
+    </>
+  );
 }
 
-export default App
+export default App;
