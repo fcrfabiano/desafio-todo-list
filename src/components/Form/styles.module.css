@@ -1,0 +1,110 @@
+.button {
+  align-items: center;
+  background: var(--blue-dark);
+  border-radius: 8px;
+  border: 0;
+  color: var(--gray-100);
+  display: flex;
+  font-size: var(--14px);
+  font-weight: 700;
+  padding: 1rem;
+  transition: background 100ms;
+}
+
+.iconButton {
+  align-items: center;
+  background: transparent;
+  border-radius: 4px;
+  border: 0;
+  color: var(--gray-300);
+  display: flex;
+  padding: 5px 6px;
+}
+
+.button:hover {
+  background: var(--blue);
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  color: var(--danger);
+  cursor: pointer;
+}
+
+.startIcon {
+  display: inherit;
+  margin-left: -4px;
+  margin-right: 8px;
+}
+
+.endIcon {
+  display: inherit;
+  margin-left: 8px;
+  margin-right: -4px;
+}
+
+.input {
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: 0;
+  color: var(--gray-100);
+  padding: 1rem;
+}
+
+.input::placeholder {
+  color: var(--gray-300);
+}
+
+.button:focus,
+.iconButton:focus,
+.input:focus,
+.checkbox[type="checkbox"]:focus {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-shadow: inset 0px 0px 0px 1px var(--purple-dark);
+  box-sizing: border-box;
+}
+
+.checkbox[type="checkbox"] {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  transition: background 100ms;
+  width: 24px;
+}
+.checkbox[type="checkbox"]:hover {
+  border-color: var(--blue-dark);
+  background: rgba(94, 96, 206, 0.2);
+}
+
+.checkbox:checked {
+  border: 0;
+  background: var(--purple-dark);
+}
+
+.checkbox:hover:checked {
+  background: var(--purple);
+}
+
+.checkbox:checked::before {
+  content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxNSAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjgzNDkgMC42MTE0OTRMNS43MjIwOSA3LjcyNDI3TDEuNjUyNzggMy42NTQ5NkwwLjI4MDI3MyA1LjAyNzQ3TDUuNzE5ODEgMTAuNDY3TDE0LjIwNTEgMS45ODE3MkwxMi44MzQ5IDAuNjExNDk0WiIgZmlsbD0iI0YyRjJGMiIvPgo8L3N2Zz4=");
+  color: var(--gray-100);
+}
+
+.error {
+  color: var(--danger);
+  font-size: var(--12px);
+  margin-top: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
