@@ -7,6 +7,7 @@ import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { todo } from "../../lib/schemas/validation";
 import { z } from "zod";
+import { toast } from "../../lib/toast";
 
 type Todo = z.infer<typeof todo>;
 
@@ -32,6 +33,8 @@ const TodoBar: FC<TodoBarProps> = ({ onAddTodoItem }) => {
       name: todo,
       isDone: false,
     });
+
+    toast.success("Nova tarefa adicionada!");
   };
 
   return (

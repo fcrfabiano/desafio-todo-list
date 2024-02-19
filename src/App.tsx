@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import TodoBar from "./components/TodoBar";
 import TodoList from "./components/TodoList";
 import { useFieldArray, useForm } from "react-hook-form";
+import ToastContainer from "./components/ToastContainer";
 
 type TodosProps = {
   todos: {
@@ -28,6 +29,7 @@ function App() {
       <Header />
       <TodoBar onAddTodoItem={append} />
       <TodoList todoList={todoList} onRemoveTodoItem={remove} onUpdateTodoItem={update} />
+      <ToastContainer />
     </>
   );
 }
