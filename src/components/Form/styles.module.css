@@ -76,7 +76,7 @@
   border-radius: 50%;
   border: 2px solid var(--blue);
   display: flex;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   height: 17.45px;
   justify-content: center;
   transition: background 100ms;

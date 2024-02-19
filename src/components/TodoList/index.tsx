@@ -4,35 +4,21 @@ import styles from "./styles.module.css";
 import { ClipboardText } from "@phosphor-icons/react";
 import Task from "../Task";
 
-const TodoList: FC = () => {
-  const todoList = [
-    {
-      id: crypto.randomUUID(),
-      todo: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: false,
-    },
-    {
-      id: crypto.randomUUID(),
-      todo: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: false,
-    },
-    {
-      id: crypto.randomUUID(),
-      todo: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: false,
-    },
-    {
-      id: crypto.randomUUID(),
-      todo: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: true,
-    },
-    {
-      id: crypto.randomUUID(),
-      todo: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isDone: true,
-    },
-  ];
+type TodoListProps = {
+  onRemoveTodoItem: (id: number) => void;
+  onUpdateTodoItem: (index: number, obj: any) => void;
+  todoList: {
+    id: number;
+    name: string;
+    isDone: boolean;
+  }[];
+};
 
+const TodoList: FC<TodoListProps> = ({
+  onRemoveTodoItem,
+  onUpdateTodoItem,
+  todoList,
+}) => {
   const todosDone = todoList.reduce((acc, curr) => {
     if (curr.isDone) {
       acc += 1;
@@ -76,8 +62,17 @@ const TodoList: FC = () => {
           </>
         )}
 
-        {todoList.map(({ id, todo, isDone }) => (
-          <Task key={id} id={id} todo={todo} isDone={isDone} />
+        {todoList.map(({ id, name, isDone }, index: number) => (
+          <Task
+            key={id}
+            id={id}
+            todo={name}
+            isDone={isDone}
+            onRemove={() => onRemoveTodoItem(id)}
+            onUpdate={() =>
+              onUpdateTodoItem(index, { id, name, isDone: !isDone })
+            }
+          />
         ))}
       </article>
     </main>

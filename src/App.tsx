@@ -3,22 +3,31 @@ import { PlusCircle, Trash } from "@phosphor-icons/react";
 import Header from "./components/Header";
 import TodoBar from "./components/TodoBar";
 import TodoList from "./components/TodoList";
+import { useFieldArray, useForm } from "react-hook-form";
+
+type TodosProps = {
+  todos: {
+    id: number;
+    name: string;
+    isDone: boolean;
+  }[];
+};
 
 function App() {
+  const { control } = useForm<TodosProps>({
+    defaultValues: {
+      todos: [],
+    },
+  });
+  const { fields: todoList, append, remove, update } = useFieldArray({
+    control,
+    name: "todos",
+  });
   return (
     <>
       <Header />
-      <TodoBar />
-      <TodoList />
-
-      {/* <Form.IconButton>
-        <Trash weight='bold' />
-      </Form.IconButton>
-      <Form.Input
-        // label="Adicione uma nova tarefa"
-        placeholder='Adicione uma nova tarefa'
-      />
-      <Form.Checkbox /> */}
+      <TodoBar onAddTodoItem={append} />
+      <TodoList todoList={todoList} onRemoveTodoItem={remove} onUpdateTodoItem={update} />
     </>
   );
 }

@@ -6,19 +6,21 @@ import { Trash } from "@phosphor-icons/react";
 import { Form } from "../Form";
 
 type TaskProps = {
-  id: string;
+  id: number;
   todo: string;
   isDone: boolean;
+  onRemove: () => void;
+  onUpdate: () => void;
 };
 
-const Task: FC<TaskProps> = ({ id, todo, isDone }) => {
+const Task: FC<TaskProps> = ({ id, todo, isDone, onRemove, onUpdate }) => {
   return (
     <section className={styles.task}>
-      <Checkbox checked={isDone} />
+      <Checkbox checked={isDone} onChange={onUpdate} />
 
       <span className={isDone ? styles.done : styles.notDone}>{todo}</span>
 
-      <Form.IconButton onClick={() => alert(`Remover o item ${id}`)}>
+      <Form.IconButton onClick={onRemove}>
         <Trash weight='bold' />
       </Form.IconButton>
     </section>

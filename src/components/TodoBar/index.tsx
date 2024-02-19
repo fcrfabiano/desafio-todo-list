@@ -10,7 +10,11 @@ import { z } from "zod";
 
 type Todo = z.infer<typeof todo>;
 
-const TodoBar: FC = ({ ...props }) => {
+type TodoBarProps = {
+  onAddTodoItem: (obj: any) => void;
+};
+
+const TodoBar: FC<TodoBarProps> = ({ onAddTodoItem }) => {
   const createTodoList = useForm<Todo & { todos: any[] }>({
     criteriaMode: "all",
     defaultValues: {
@@ -21,17 +25,13 @@ const TodoBar: FC = ({ ...props }) => {
     resolver: zodResolver(todo),
   });
 
-  const { handleSubmit, control } = createTodoList;
+  const { handleSubmit } = createTodoList;
 
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: "todos",
-  });
-
-  const handleCreateTodo = (newTodo: Todo) => {
-    console.log("====================================");
-    console.log(newTodo);
-    console.log("====================================");
+  const handleCreateTodo = ({ todo }: Todo) => {
+    onAddTodoItem({
+      name: todo,
+      isDone: false,
+    });
   };
 
   return (
